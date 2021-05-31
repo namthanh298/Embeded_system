@@ -67,7 +67,7 @@ void setup()
  
     Serial.println();
     Serial.println(F("Da ket noi WiFi"));
-    Serial.println(F("Di chi IP cua ESP8266 (Socket Client ESP8266): "));
+    Serial.println(F("Dia chi IP cua ESP8266 (Socket Client ESP8266): "));
     Serial.println(WiFi.localIP());
  
     if (!client.connect(host, port)) {
