@@ -1,1 +1,42 @@
+Đề tài này là về tracking vật thể bằng gps module, dữ liệu này được đẩy lên sever bằng ESP8266. Sever có client application là web
+Trong này có 4 file
 
+File code Arduino : 
+    Dùng để đọc dữ liệu từ GPS Neo 7
+    Dữ liệu đọc là LON, LAT ( chú ý bình thường ở map sẽ là LAT, LON; ở đây thay đổi để có thể sử dụng API)
+    Dữ liệu này được gửi đến ESP Serial : gửi tên lệnh và chuỗi JSON tương ứng
+    Chuỗi :
+      
+{
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            105.8407837,
+            20.9967994
+        ]
+    },
+    "type": "Feature",
+    "properties": {
+        "title":"Xe Bus 16"
+    }
+}
+
+
+File Esp client socket:
+  file này để tạo ESP là trung gian để có thể truyền data trên sang phía sever
+  ESP chỉ là trung gian để truyền thông qua cổng PORT
+  
+  
+File Socket Sever
+  file này dùng Nodejs express để viết sever
+  sever nhận lệnh từ ESP và JSON
+  sever có sử dụng thêm Mongodb
+  
+File client 
+   file này để hiện thị cho người dùng
+   Dùng API là map box
+   Hiện thị map và vị trí xe được gắn GPS
+   
+  
+
+  
